@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'djoser',
     'rest_framework_simplejwt',
     #
-
+    'profiles'
 ]
 
 MIDDLEWARE = [
@@ -147,4 +147,8 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
+    'DATETIME_FORMAT': "%H:%M %m-%d-%Y"
 }
+
+
+AUTH_USER_MODEL = 'profiles.UserNet'

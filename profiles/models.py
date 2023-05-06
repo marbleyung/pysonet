@@ -8,4 +8,8 @@ class UserNet(AbstractUser):
     first_login = models.DateTimeField(null=True)
     phone = models.CharField(max_length=14)
     avatar = models.ImageField(upload_to='user/avatar', null=True, blank=True)
-
+    bio = models.TextField(max_length=2000, blank=True, null=True)
+    github = models.URLField(blank=True, null=True)
+    gender = models.CharField(blank=True, null=True, choices=
+    (('Male', 'Male'), ('Female', 'Female'), ('Non-binary', 'Non-binary')))
+    date_of_birth = models.DateField(blank=True, null=True)
