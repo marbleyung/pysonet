@@ -43,8 +43,12 @@ INSTALLED_APPS = [
     'django_filters',
     'djoser',
     'rest_framework_simplejwt',
+    'mptt',
     #
-    'profiles'
+    'profiles',
+    'wall',
+    'comments',
+    'base',
 ]
 
 MIDDLEWARE = [
@@ -152,3 +156,4 @@ REST_FRAMEWORK = {
 
 
 AUTH_USER_MODEL = 'profiles.UserNet'
+

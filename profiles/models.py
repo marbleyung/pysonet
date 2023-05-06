@@ -2,6 +2,13 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 
+class Technology(models.Model):
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+
 class UserNet(AbstractUser):
     '''Custom user model'''
     middle_name = models.CharField(max_length=50)
@@ -13,3 +20,4 @@ class UserNet(AbstractUser):
     gender = models.CharField(blank=True, null=True, choices=
     (('Male', 'Male'), ('Female', 'Female'), ('Non-binary', 'Non-binary')))
     date_of_birth = models.DateField(blank=True, null=True)
+    technology = models.ManyToManyField(Technology, related_name='users')
