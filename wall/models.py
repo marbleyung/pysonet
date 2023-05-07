@@ -21,9 +21,12 @@ class Post(models.Model):
             return f"{self.author}: {self.text[:25]} EDITED AT {self.edited_at}"
         return f"{self.author}: {self.text[:25]} {self.created_at}"
 
+    def comments_count(self):
+        return self.comments.count()
+
 
 class Comment(AbstractComment, MPTTModel):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
     author = models.ForeignKey(UserNet, on_delete=models.SET_NULL, null=True)
     parent = TreeForeignKey('self',
                             verbose_name='Parent comment',
