@@ -7,3 +7,11 @@ class UserNetSerializer(serializers.ModelSerializer):
         model = UserNet
         exclude = ('is_active', 'is_staff', 'is_superuser', 'last_login', 'password',
                    'user_permissions', 'groups', )
+
+
+class FollowerProfileSerializer(serializers.ModelSerializer):
+    avatar = serializers.ImageField(read_only=True)
+
+    class Meta:
+        model = UserNet
+        fields = ('username', 'avatar', 'first_name', 'last_name', )
